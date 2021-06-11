@@ -64,7 +64,7 @@
                                 <div class="col-sm-12">
                                     @foreach($usractual as $user)
                                         @if($curso["creador_curso"]==$user["id"])
-                                            <button class="btn btn-outline-primary" href="../ActualizarCurso/{{$curso["id"]}}">Editar</button>
+                                            <a href="../ActualizarCurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Editar</button></a>
                                             <button class="btn btn-primary" href="/#">Detalles</button>
                                         @else
                                             <button class="btn btn-primary" href="/#">Comprar</button>
@@ -83,6 +83,5 @@
         </div>
         @endforeach
     </div>
-
 
 @endsection
