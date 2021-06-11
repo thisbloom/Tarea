@@ -26,6 +26,7 @@
             <a class="navbar-brand" href="{{ url('/BuscarCursos') }}">Ver Cursos</a>
             <a class="navbar-brand" href="{{ url('/crearcursos') }}">Crear Curso</a>
             <a class="navbar-brand" href="{{ url('/CursosCreados') }}">Cursos Creados</a>
+            <a class="navbar-brand" href="{{ url('/CursosComprados') }}">Cursos Comprados</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>

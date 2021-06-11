@@ -18,6 +18,8 @@ class CreateCursosTable extends Migration
             $table->string("nombre_curso",250);
             $table->string("desc_curso",5000);
             $table->string("precio_curso",20);
+            $table->string("img_curso",150);
+
         });
 
         Schema::table('cursos', function (Blueprint $table) {

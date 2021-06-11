@@ -12,28 +12,37 @@
 
 
     <section>
-        <form method="post" action="/crearcursos2">
+        <form  enctype="multipart/form-data" method="post" action="/crearcursos2" >
             @csrf
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 mx-auto">
                     <div class="card shadow border-0 mb-5">
-                        <div class="card-body p-5">
+                        <div class="card-body p-6">
                             <h2 class="h4 mb-1">Nombre del Curso</h2>
                             <p class="small text-muted font-italic mb-4">Ponle un nombre al curso que quieres crear</p>
                             <p class="mb-0"><input type="text" maxlength="150" name="nombre_curso"/></p>
                         </div>
 
-                        <div class="card-body p-5">
+                        <div class="card-body p-6">
                             <h2 class="h4 mb-1">Descripción del Curso</h2>
                             <p class="small text-muted font-italic mb-4">Describe el curso que estás creando</p>
                             <p class="mb-0"><input type="text" maxlength="150" name="desc_curso"/></p>
                         </div>
 
-                        <div class="card-body p-5">
+                        <div class="card-body p-6">
                             <h2 class="h4 mb-1">Precio del curso</h2>
                             <p class="small text-muted font-italic mb-4">Describe el curso que estás creando</p>
                             <p><input type="number" maxlength="150" name="precio_curso"/></p>
+                        </div>
+
+                        <div class="card-body p-6">
+                            <h2 class="h4 mb-1">Imagen del curso</h2>
+                            <p class="small text-muted font-italic mb-4">Porfavor Ingrese Una vista previa para en curso</p>
+                            <p><input type="file" name="img_curso"/></p>
+                            @if(!empty($mensaje))
+                                <span class="error_span">{{$mensaje}}</span>
+                            @endif
                         </div>
 
                         <td colspan="5"><input type="submit" name="submit" value="Crear Curso"></td>
@@ -43,6 +52,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </section>
 
 @endsection

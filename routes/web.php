@@ -16,12 +16,15 @@ use App\Http\Controllers\CursoController;
 
 Route::view('/','welcome');
 
-Route::view("/crearcursos", "crearcurso");
+Route::view("/crearcursos", "crearcurso")->name('cursocreate');
 Route::post("/crearcursos2", [CursoController::class,"crear"]);
 
 Route::get("/BuscarCursos",[CursoController::class,"mostrar"]);
 
 Route::get("/CursosCreados",[CursoController::class,"creados"]);
+
+Route::get("/ActualizarCurso/{id}",[CursoController::class,"vpactualizar"]);
+Route::post("/ActualizarCurso",[CursoController::class,"actualizar"]);
 
 Route::get("/DetallesCurso/{id}",[CursoController::class,"detalles"],["id","id"]);
 
