@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\Compra;
 use App\Models\User;
 use Auth;
+
 
 class CursoController extends Controller
 {
@@ -98,9 +100,11 @@ class CursoController extends Controller
         $usractual = User::where("id",$usuarioactual)->get(); //usuario logeado string
 
         $resultados = Curso::where("id",$id)->get(); //id curso
-        $res = User::get(); //creador del curso?????????????
+        $res = User::get(); //creador del curso
+        $comprado = Compra::get(); //para saber si el curso esta comprado
 
-        return view("detallescurso", ["resultados"=>$resultados, "usractual"=>$usractual], ["res"=>$res]);
+
+        return view("detallescurso", ["resultados"=>$resultados, "usractual"=>$usractual], ["res"=>$res, "comprado"=>$comprado]);
     }
 
 

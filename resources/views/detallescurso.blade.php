@@ -65,9 +65,16 @@
                                     @foreach($usractual as $user)
                                         @if($curso["creador_curso"]==$user["id"])
                                             <a href="../ActualizarCurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Editar</button></a>
-                                            <button class="btn btn-primary" href="/#">Detalles</button>
+
                                         @else
-                                            <button class="btn btn-primary" href="/#">Comprar</button>
+                                            @foreach($comprado as $compra)@foreach($usractual as $user)
+                                                @if($curso["id"]==$compra["id_curso"])
+                                                    <a href="#"><button class="btn btn-outline-primary">ce</button></a>
+                                                @else
+                                                    A
+                                                @endif
+                                            @endforeach @endforeach <a href="../comprarcurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Comprar</button></a>
+
                                         @endif
                                     @endforeach
 
