@@ -23,9 +23,11 @@ class CompraController extends Controller
         $compra->id_curso = $id;
         $compra->save();
 
-        //$resultados = Curso::get();
-        //$res = User::get();
-        //return view("buscarcursos", ["resultados"=>$resultados], ["res"=>$res]);
+        $id_usuario = Auth::id();
+        $resultadosCompra = Compra::where("id_user",$id_usuario)->get();
+        $resultadosCurso = Curso::get();
+        $res = User::get();
+        return view("mostrarcompras", ["resultadosCompra"=>$resultadosCompra, "resultadosCurso"=>$resultadosCurso], ["res"=>$res]);
 
     }
 
@@ -36,5 +38,17 @@ class CompraController extends Controller
         $res = User::get();
         return view("mostrarcompras", ["resultadosCompra"=>$resultadosCompra, "resultadosCurso"=>$resultadosCurso], ["res"=>$res]);
     }
+
+    /*public function detalles(string $id){
+        $usuarioactual = Auth::id(); //usuario logeado
+        $usractual = User::where("id",$usuarioactual)->get(); //usuario logeado string
+
+        $resultados = Curso::where("id",$id)->get(); //id curso
+        $res = User::get(); //creador del curso
+        $comprado = Compra::where("id_curso",$id)->get(); //para saber si el curso esta comprado
+
+
+        return view("detallescompras", ["resultados"=>$resultados, "usractual"=>$usractual], ["res"=>$res, "comprado"=>$comprado]);
+    }*/
 
 }

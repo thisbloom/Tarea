@@ -62,21 +62,27 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @foreach($usractual as $user)
-                                        @if($curso["creador_curso"]==$user["id"])
+
+
+                                        @if($curso["creador_curso"]==\Illuminate\Support\Facades\Auth::id())
                                             <a href="../ActualizarCurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Editar</button></a>
 
                                         @else
-                                            @foreach($comprado as $compra)@foreach($usractual as $user)
-                                                @if($curso["id"]==$compra["id_curso"])
-                                                    <a href="#"><button class="btn btn-outline-primary">ce</button></a>
-                                                @else
-                                                    A
+                                        @php($usuario=0)
+                                            @foreach($comprado as $compra)
+                                                @if(\Illuminate\Support\Facades\Auth::id()==$compra["id_user"])
+                                                @php($usuario=1)
                                                 @endif
-                                            @endforeach @endforeach <a href="../comprarcurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Comprar</button></a>
+                                            @endforeach
+                                            @if($usuario==1)
+                                                <a href="#"><button class="btn btn-outline-primary">Ver videos</button></a>
+                                            @else
+                                                <a href="../comprarcurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Comprar</button></a>
+                                            @endif
+
 
                                         @endif
-                                    @endforeach
+
 
 
 

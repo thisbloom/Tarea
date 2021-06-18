@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\TemaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +31,17 @@ Route::post("/ActualizarCurso",[CursoController::class,"actualizar"]);
 Route::get("/DetallesCurso/{id}",[CursoController::class,"detalles"],["id","id"]);
 
 
+
 Route::get("/comprarcurso/{id}", [CompraController::class,"comprar"],["id","id"]);
 
 Route::get("/CursosComprados",[CompraController::class,"mostrar"]);
 
+Route::get("/DetallesCompras/{id}",[CompraController::class,"detalles"],["id","id"]);
+
+
+
+Route::view("/creartema","creartema");
+Route::post("/creartema2",[TemaController::class,"crear"]);
 
 Auth::routes();
 
