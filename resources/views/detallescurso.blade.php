@@ -66,6 +66,8 @@
 
                                         @if($curso["creador_curso"]==\Illuminate\Support\Facades\Auth::id())
                                             <a href="../ActualizarCurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Editar</button></a>
+                                            <a href="../mostrartemas/{{$curso["id"]}}"><button class="btn btn-outline-primary">Mostrar Temas</button></a>
+                                            <a href="../creartema/{{$curso["id"]}}"><button class="btn btn-outline-primary">Crear Tema</button></a>
 
                                         @else
                                         @php($usuario=0)
@@ -75,12 +77,10 @@
                                                 @endif
                                             @endforeach
                                             @if($usuario==1)
-                                                <a href="#"><button class="btn btn-outline-primary">Ver videos</button></a>
+                                                <a href="../mostrartemas/{{$curso["id"]}}"><button class="btn btn-outline-primary">Ver videos</button></a>
                                             @else
                                                 <a href="../comprarcurso/{{$curso["id"]}}"><button class="btn btn-outline-primary">Comprar</button></a>
                                             @endif
-
-
                                         @endif
 
 

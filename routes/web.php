@@ -40,8 +40,18 @@ Route::get("/DetallesCompras/{id}",[CompraController::class,"detalles"],["id","i
 
 
 
-Route::view("/creartema","creartema");
-Route::post("/creartema2",[TemaController::class,"crear"]);
+//Route::view("/creartema/{id}", [TemaController::class,"creartema"]);
+Route::get("/creartema/{idx}", function(string $idx){
+    return view("creartema")->with("idx",$idx);
+});
+Route::post("/creartema2",[TemaController::class,"creartema"]);
+
+Route::get("/mostrartemas/{id}",[TemaController::class,"mostrartemas"]);
+
+Route::get("/editartema/{id}",[TemaController::class,"vpeditar"]);
+Route::post("/editartema",[TemaController::class,"editar"]);
+
+
 
 Auth::routes();
 
