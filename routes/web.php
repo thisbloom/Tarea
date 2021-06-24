@@ -21,9 +21,9 @@ Route::view('/','welcome');
 Route::view("/crearcursos", "crearcurso")->name('cursocreate');
 Route::post("/crearcursos2", [CursoController::class,"crear"]);
 
-Route::get("/BuscarCursos",[CursoController::class,"mostrar"]);
+Route::get("/BuscarCursos",[CursoController::class,"mostrar"])->name('mostrarxcurso');
 
-Route::get("/CursosCreados",[CursoController::class,"creados"]);
+Route::get("/CursosCreados",[CursoController::class,"creados"])->name('mostrarxcreado');
 
 Route::get("/ActualizarCurso/{id}",[CursoController::class,"vpactualizar"]);
 Route::post("/ActualizarCurso",[CursoController::class,"actualizar"]);
@@ -34,7 +34,7 @@ Route::get("/DetallesCurso/{id}",[CursoController::class,"detalles"],["id","id"]
 
 Route::get("/comprarcurso/{id}", [CompraController::class,"comprar"],["id","id"]);
 
-Route::get("/CursosComprados",[CompraController::class,"mostrar"]);
+Route::get("/CursosComprados",[CompraController::class,"mostrar"])->name('mostrarxcomprado');
 
 Route::get("/DetallesCompras/{id}",[CompraController::class,"detalles"],["id","id"]);
 

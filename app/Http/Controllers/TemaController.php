@@ -29,9 +29,7 @@ class TemaController extends Controller
             $tema->id_curso_tema = $data["id_curso_tema"];
             $tema->save();
 
-            $resultados = Tema::where("id_curso_tema", $data["id_curso_tema"])->get();
-            $curso = Curso::where("id", $data["id_curso_tema"])->get();
-            return view("mostrartemas", ["resultados" => $resultados], ["curso"=>$curso]);
+            return redirect()->route('mostrarxcreado');
 
         }else{
             $mensaje = "El numero de caracteres debe ser menor a 150";
@@ -70,6 +68,8 @@ class TemaController extends Controller
             $tema->descripción = $request->descripción;
             $tema->video = $nombre;
             $tema->save();
+
+            return redirect()->route('mostrarxcreado');
 
         }else{
             $mensaje = "El numero de caracteres debe ser menor a 150";

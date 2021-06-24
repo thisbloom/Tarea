@@ -27,7 +27,8 @@ class CompraController extends Controller
         $resultadosCompra = Compra::where("id_user",$id_usuario)->get();
         $resultadosCurso = Curso::get();
         $res = User::get();
-        return view("mostrarcompras", ["resultadosCompra"=>$resultadosCompra, "resultadosCurso"=>$resultadosCurso], ["res"=>$res]);
+        //return view("mostrarcompras", ["resultadosCompra"=>$resultadosCompra, "resultadosCurso"=>$resultadosCurso], ["res"=>$res]);
+        return redirect()->route('mostrarxcomprado');
 
     }
 

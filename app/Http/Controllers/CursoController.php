@@ -33,8 +33,8 @@ class CursoController extends Controller
             $curso->img_curso = $nombre;
             $curso->creador_curso = $id_usuario;
             $curso->save();
-            $resultados = Curso::where("creador_curso", $id_usuario)->get();
-            return view("buscarcursos", ["resultados" => $resultados], ["res" => $res]);
+            return redirect()->route('mostrarxcurso');
+
 
         }else{
             $mensaje = "El numero de caracteres debe ser menor a 150";
@@ -72,6 +72,8 @@ class CursoController extends Controller
         $curso->precio_curso = $request->precio_curso;
         $curso->img_curso = $nombre;
         $curso->save();
+        return redirect()->route('mostrarxcurso');
+
         }else{
             $mensaje = "El numero de caracteres debe ser menor a 150";
             return redirect()->route('cursocreate', $mensaje);
